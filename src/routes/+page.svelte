@@ -1,57 +1,67 @@
 <script>
-	import Counter from '$lib/Counter.svelte';
+	// Video placeholder will be added later
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Les Chemins d'Aristote</title>
+	<meta name="description" content="Apprenez la philosophie en français" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</span>
+<div class="container">
+	<h1>Les Chemins d'Aristote</h1>
+	
+	<div class="welcome-text">
+		<p>
+			Bienvenue sur Les Chemins d'Aristote, votre portail vers la philosophie en français. 
+			Notre mission est de rendre la philosophie accessible à tous, à travers des cours 
+			structurés, des exercices pratiques et une communauté d'apprenants passionnés.
+		</p>
+	</div>
 
-		to your new<br />SvelteKit app: Les Chemins d'Aristote
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
+	<div class="video-placeholder">
+		<div class="video-container">
+			<p>Vidéo à venir</p>
+		</div>
+	</div>
+</div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+		text-align: center;
 	}
 
 	h1 {
-		width: 100%;
+		font-size: 3rem;
+		color: #2c3e50;
+		margin-bottom: 2rem;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	.welcome-text {
+		max-width: 800px;
+		margin: 0 auto 3rem auto;
+		line-height: 1.6;
+		color: #34495e;
 	}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	.welcome-text p {
+		font-size: 1.2rem;
+	}
+
+	.video-placeholder {
+		margin: 2rem auto;
+		max-width: 800px;
+	}
+
+	.video-container {
+		background-color: #f5f5f5;
+		aspect-ratio: 16/9;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 8px;
+		color: #666;
 	}
 </style>
