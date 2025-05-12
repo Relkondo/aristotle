@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   let step = 1;
   let classe = '';
   let classeAutre = '';
@@ -19,6 +20,10 @@
   function handleObjectifChange(value: string) {
     objectif = value;
     if (value !== 'Autre') objectifAutre = '';
+  }
+
+  function finish() {
+    goto('/cours');
   }
 </script>
 
@@ -63,8 +68,10 @@
     </div>
   {/if}
 
-  {#if step <= 3}
+  {#if step < 3}
     <button class="nav-button next" on:click={next}>Suivant</button>
+  {:else if step === 3}
+    <button class="nav-button next" on:click={finish}>Terminer</button>
   {/if}
 </div>
 
