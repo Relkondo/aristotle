@@ -1,7 +1,16 @@
-<script>
+<script lang="ts">
   import { page } from '$app/stores';
   
-  const trackConfigs = {
+  type TrackType = 'accelere' | 'classique' | 'premium';
+  type NodeType = 'video' | 'exercise';
+  type TrackConfig = {
+    title: string;
+    description: string;
+    nodes: { type: NodeType }[];
+  };
+  type TrackConfigs = { [key in TrackType]: TrackConfig };
+  
+  const trackConfigs: TrackConfigs = {
     accelere: {
       title: 'Parcours Accéléré',
       description: 'Un parcours intensif couvrant les concepts fondamentaux de la philosophie. Idéal pour une première approche ou une révision rapide.',
@@ -19,7 +28,7 @@
     }
   };
 
-  $: track = $page.params.track;
+  $: track = $page.params.track as TrackType;
   $: config = trackConfigs[track];
 </script>
 

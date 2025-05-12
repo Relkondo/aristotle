@@ -69,39 +69,30 @@
     }
   }
 
-  function hasNextContent(track: keyof VideoTracks, id: number): boolean {
-    switch (track) {
-      case 'accelere':
-        return !!videoContent.accelere[id + 1];
-      case 'classique':
-        return !!videoContent.classique[id + 1];
-      case 'premium':
-        return !!videoContent.premium[id + 1];
-      default:
-        return false;
-    }
-  }
-
-  function hasPrevContent(track: keyof VideoTracks, id: number): boolean {
-    switch (track) {
-      case 'accelere':
-        return !!videoContent.accelere[id - 1];
-      case 'classique':
-        return !!videoContent.classique[id - 1];
-      case 'premium':
-        return !!videoContent.premium[id - 1];
-      default:
-        return false;
-    }
-  }
-  
   $: track = $page.params.track as keyof VideoTracks;
   $: id = parseInt($page.params.id);
   $: content = getContent(track, id);
+  
+  // Simple increment/decrement for navigation
   $: nextId = id + 1;
   $: prevId = id - 1;
-  $: hasNext = hasNextContent(track, id);
-  $: hasPrev = hasPrevContent(track, id);
+  
+  // Check if next/prev content exists based on track
+  $: hasNext = track === 'accelere' ? 
+    nextId <= 5 : 
+    (track === 'classique' ? nextId <= 20 : nextId <= 30);
+  $: hasPrev = prevId >= 1;
+  
+  // Determine next and previous content types
+  $: nextType = hasNext ? (
+    track === 'accelere' ? 'video' :
+    nextId % 2 === 0 ? 'exercise' : 'video'
+  ) : null;
+  
+  $: prevType = hasPrev ? (
+    track === 'accelere' ? 'video' :
+    prevId % 2 === 0 ? 'exercise' : 'video'
+  ) : null;
 </script>
 
 <div class="container">
@@ -116,10 +107,10 @@
 
   <div class="navigation">
     {#if hasPrev}
-      <a href="/cours/{track}/video/{prevId}" class="nav-button prev">Précédent</a>
+      <a href="/cours/{track}/{prevType}/{prevId}" class="nav-button prev">Précédent</a>
     {/if}
     {#if hasNext}
-      <a href="/cours/{track}/video/{nextId}" class="nav-button next">Suivant</a>
+      <a href="/cours/{track}/{nextType}/{nextId}" class="nav-button next">Suivant</a>
     {/if}
   </div>
 

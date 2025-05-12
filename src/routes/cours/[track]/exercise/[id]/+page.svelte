@@ -1,8 +1,13 @@
-<script>
+<script lang="ts">
   import { page } from '$app/stores';
   import ProgressBar from '$lib/components/ProgressBar.svelte';
   
-  const exerciseContent = {
+  type TrackType = 'accelere' | 'classique' | 'premium';
+  type ExerciseContent = { question: string };
+  type ExerciseTrack = { [key: number]: ExerciseContent };
+  type ExerciseTracks = { [key in TrackType]: ExerciseTrack };
+  
+  const exerciseContent: ExerciseTracks = {
     accelere: {},
     classique: {
       1: { question: 'Quelle est la place de la raison dans la connaissance selon Platon ?' },
@@ -35,16 +40,25 @@
     }
   };
 
-  const validTracks = ['accelere', 'classique', 'premium'];
+  const validTracks: TrackType[] = ['accelere', 'classique', 'premium'];
   
-  $: track = validTracks.includes($page.params.track) ? $page.params.track : 'accelere';
+  $: track = validTracks.includes($page.params.track as TrackType) ? $page.params.track as TrackType : 'accelere';
   $: id = parseInt($page.params.id);
   $: content = exerciseContent[track]?.[id] || { question: 'Exercice en préparation' };
   $: answer = '';
+  
+  // Simple increment/decrement for navigation
   $: nextId = id + 1;
   $: prevId = id - 1;
-  $: hasNext = exerciseContent[track]?.[nextId];
-  $: hasPrev = exerciseContent[track]?.[prevId];
+  
+  // Check if next/prev content exists based on track
+  $: hasNext = track === 'accelere' ? false : 
+    (track === 'classique' ? nextId <= 20 : nextId <= 30);
+  $: hasPrev = track === 'accelere' ? false : prevId >= 1;
+  
+  // Determine next and previous content types
+  $: nextType = hasNext ? 'video' : null;
+  $: prevType = hasPrev ? 'video' : null;
 
   function handleSubmit() {
     // Here you would typically send the answer to a server
@@ -77,10 +91,10 @@
 
   <div class="navigation">
     {#if hasPrev}
-      <a href="/cours/{track}/exercise/{prevId}" class="nav-button prev">Précédent</a>
+      <a href="/cours/{track}/{prevType}/{prevId}" class="nav-button prev">Précédent</a>
     {/if}
     {#if hasNext}
-      <a href="/cours/{track}/exercise/{nextId}" class="nav-button next">Suivant</a>
+      <a href="/cours/{track}/{nextType}/{nextId}" class="nav-button next">Suivant</a>
     {/if}
   </div>
 

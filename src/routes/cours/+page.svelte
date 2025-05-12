@@ -1,27 +1,30 @@
 <script>
   const tracks = [
     {
-      name: 'Accéléré',
+      id: 'accelere',
+      title: 'Accéléré',
       courses: 5,
-      description: 'Le coeur du programme',
-      color: '#4a90e2',
-      hoverColor: '#357abd',
+      description: 'Un parcours intensif de 5 semaines pour maîtriser les fondamentaux de la philosophie.',
+      color: '#4a6b8a',
+      hoverColor: '#3a5a7a',
       path: '/cours/accelere'
     },
     {
-      name: 'Classique',
+      id: 'classique',
+      title: 'Classique',
       courses: 10,
-      description: 'Programme complet + exercices corrigés par le professeur',
-      color: '#2ecc71',
-      hoverColor: '#27ae60',
+      description: 'Un parcours complet de 10 semaines pour une compréhension approfondie de la philosophie.',
+      color: '#5d7a6d',
+      hoverColor: '#4d6a5d',
       path: '/cours/classique'
     },
     {
-      name: 'Premium',
+      id: 'premium',
+      title: 'Premium',
       courses: 15,
-      description: 'Programme complet + exercices corrigés + entretiens de préparation avec le professeur',
-      color: '#9b59b6',
-      hoverColor: '#8e44ad',
+      description: 'Un parcours approfondi de 15 semaines avec des contenus exclusifs et un suivi personnalisé.',
+      color: '#7a6b8a',
+      hoverColor: '#6a5a7a',
       path: '/cours/premium'
     }
   ];
@@ -39,7 +42,7 @@
     {#each tracks as track}
       <div class="track-card" style="--track-color: {track.color}; --track-hover-color: {track.hoverColor}">
         <div class="track-header">
-          <h2>{track.name}</h2>
+          <h2>{track.title}</h2>
           <span class="course-count">{track.courses} cours</span>
         </div>
         <p class="track-description">{track.description}</p>
