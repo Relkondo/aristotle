@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   
-  type TrackType = 'accelere' | 'classique' | 'premium';
+  type TrackType = 'apprenti' | 'stratege' | 'excellence';
   type NodeType = 'video' | 'exercise';
   type TrackConfig = {
     title: string;
@@ -11,18 +11,18 @@
   type TrackConfigs = { [key in TrackType]: TrackConfig };
   
   const trackConfigs: TrackConfigs = {
-    accelere: {
-      title: 'Parcours Accéléré',
+    apprenti: {
+      title: 'Parcours Apprenti',
       description: 'Un parcours intensif couvrant les concepts fondamentaux de la philosophie. Idéal pour une première approche ou une révision rapide.',
       nodes: Array(5).fill({ type: 'video' })
     },
-    classique: {
-      title: 'Parcours Classique',
+    stratege: {
+      title: 'Parcours Stratège',
       description: 'Un programme complet alternant cours vidéo et exercices pratiques. Approfondissez votre compréhension à travers des exercices corrigés par le professeur.',
       nodes: Array(20).fill(null).map((_, i) => ({ type: i % 2 === 0 ? 'video' : 'exercise' }))
     },
-    premium: {
-      title: 'Parcours Premium',
+    excellence: {
+      title: 'Parcours Excellence',
       description: 'Le programme le plus complet avec des entretiens personnalisés. Perfectionnez votre maîtrise de la philosophie avec un accompagnement sur mesure.',
       nodes: Array(30).fill(null).map((_, i) => ({ type: i % 2 === 0 ? 'video' : 'exercise' }))
     }

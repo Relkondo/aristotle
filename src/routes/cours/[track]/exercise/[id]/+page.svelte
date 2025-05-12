@@ -2,14 +2,14 @@
   import { page } from '$app/stores';
   import ProgressBar from '$lib/components/ProgressBar.svelte';
   
-  type TrackType = 'accelere' | 'classique' | 'premium';
+  type TrackType = 'apprenti' | 'stratege' | 'excellence';
   type ExerciseContent = { question: string };
   type ExerciseTrack = { [key: number]: ExerciseContent };
   type ExerciseTracks = { [key in TrackType]: ExerciseTrack };
   
   const exerciseContent: ExerciseTracks = {
-    accelere: {},
-    classique: {
+    apprenti: {},
+    stratege: {
       1: { question: 'Quelle est la place de la raison dans la connaissance selon Platon ?' },
       2: { question: 'Comment Aristote définit-il le bonheur ?' },
       3: { question: 'Analysez la notion de vertu dans l\'éthique aristotélicienne.' },
@@ -21,7 +21,7 @@
       9: { question: 'Quelle est la conception de l\'histoire chez Hegel ?' },
       10: { question: 'Expliquez la dialectique du maître et de l\'esclave chez Hegel.' }
     },
-    premium: {
+    excellence: {
       1: { question: 'Analysez la notion de justice dans la République de Platon.' },
       2: { question: 'Quelle est la relation entre l\'âme et le corps selon Descartes ?' },
       3: { question: 'Expliquez la théorie des monades de Leibniz.' },
@@ -40,9 +40,9 @@
     }
   };
 
-  const validTracks: TrackType[] = ['accelere', 'classique', 'premium'];
+  const validTracks: TrackType[] = ['apprenti', 'stratege', 'excellence'];
   
-  $: track = validTracks.includes($page.params.track as TrackType) ? $page.params.track as TrackType : 'accelere';
+  $: track = validTracks.includes($page.params.track as TrackType) ? $page.params.track as TrackType : 'apprenti';
   $: id = parseInt($page.params.id);
   $: content = exerciseContent[track]?.[id] || { question: 'Exercice en préparation' };
   $: answer = '';
@@ -52,9 +52,9 @@
   $: prevId = id - 1;
   
   // Check if next/prev content exists based on track
-  $: hasNext = track === 'accelere' ? false : 
-    (track === 'classique' ? nextId <= 20 : nextId <= 30);
-  $: hasPrev = track === 'accelere' ? false : prevId >= 1;
+  $: hasNext = track === 'apprenti' ? false : 
+    (track === 'stratege' ? nextId <= 20 : nextId <= 30);
+  $: hasPrev = track === 'apprenti' ? false : prevId >= 1;
   
   // Determine next and previous content types
   $: nextType = hasNext ? 'video' : null;

@@ -5,19 +5,19 @@
   type Node = { type: NodeType };
   type TrackConfig = { nodes: Node[] };
   type TrackConfigs = {
-    accelere: TrackConfig;
-    classique: TrackConfig;
-    premium: TrackConfig;
+    apprenti: TrackConfig;
+    stratege: TrackConfig;
+    excellence: TrackConfig;
   };
   
   const trackConfigs: TrackConfigs = {
-    accelere: {
+    apprenti: {
       nodes: Array(5).fill({ type: 'video' })
     },
-    classique: {
+    stratege: {
       nodes: Array(20).fill(null).map((_, i) => ({ type: i % 2 === 0 ? 'video' : 'exercise' }))
     },
-    premium: {
+    excellence: {
       nodes: Array(30).fill(null).map((_, i) => ({ type: i % 2 === 0 ? 'video' : 'exercise' }))
     }
   };

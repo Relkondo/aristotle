@@ -12,58 +12,58 @@
   };
 
   type VideoTracks = {
-    accelere: VideoTrack;
-    classique: VideoTrack;
-    premium: VideoTrack;
+    apprenti: VideoTrack;
+    stratege: VideoTrack;
+    excellence: VideoTrack;
   };
   
   const videoContent: VideoTracks = {
-    accelere: {
+    apprenti: {
       1: { title: 'Introduction à la philosophie', videoId: 'placeholder1' },
       2: { title: 'Les présocratiques', videoId: 'placeholder2' },
       3: { title: 'Socrate et Platon', videoId: 'placeholder3' },
       4: { title: 'Aristote', videoId: 'placeholder4' },
       5: { title: 'Conclusion et perspectives', videoId: 'placeholder5' }
     },
-    classique: {
-      1: { title: 'Les origines de la philosophie grecque', videoId: 'classique1' },
-      2: { title: 'La méthode socratique', videoId: 'classique2' },
-      3: { title: 'La théorie des Idées de Platon', videoId: 'classique3' },
-      4: { title: 'La logique aristotélicienne', videoId: 'classique4' },
-      5: { title: 'L\'éthique à Nicomaque', videoId: 'classique5' },
-      6: { title: 'Le stoïcisme', videoId: 'classique6' },
-      7: { title: 'L\'épicurisme', videoId: 'classique7' },
-      8: { title: 'Le scepticisme antique', videoId: 'classique8' },
-      9: { title: 'La philosophie médiévale', videoId: 'classique9' },
-      10: { title: 'La renaissance de la philosophie', videoId: 'classique10' }
+    stratege: {
+      1: { title: 'Les origines de la philosophie grecque', videoId: 'stratege1' },
+      2: { title: 'La méthode socratique', videoId: 'stratege2' },
+      3: { title: 'La théorie des Idées de Platon', videoId: 'stratege3' },
+      4: { title: 'La logique aristotélicienne', videoId: 'stratege4' },
+      5: { title: 'L\'éthique à Nicomaque', videoId: 'stratege5' },
+      6: { title: 'Le stoïcisme', videoId: 'stratege6' },
+      7: { title: 'L\'épicurisme', videoId: 'stratege7' },
+      8: { title: 'Le scepticisme antique', videoId: 'stratege8' },
+      9: { title: 'La philosophie médiévale', videoId: 'stratege9' },
+      10: { title: 'La renaissance de la philosophie', videoId: 'stratege10' }
     },
-    premium: {
-      1: { title: 'Les présocratiques et la nature', videoId: 'premium1' },
-      2: { title: 'Socrate et l\'art du dialogue', videoId: 'premium2' },
-      3: { title: 'Platon et la justice', videoId: 'premium3' },
-      4: { title: 'Aristote et la métaphysique', videoId: 'premium4' },
-      5: { title: 'Le néoplatonisme', videoId: 'premium5' },
-      6: { title: 'La philosophie hellénistique', videoId: 'premium6' },
-      7: { title: 'Saint Augustin et la foi', videoId: 'premium7' },
-      8: { title: 'Saint Thomas d\'Aquin', videoId: 'premium8' },
-      9: { title: 'La philosophie de la Renaissance', videoId: 'premium9' },
-      10: { title: 'Le rationalisme cartésien', videoId: 'premium10' },
-      11: { title: 'L\'empirisme britannique', videoId: 'premium11' },
-      12: { title: 'Les Lumières', videoId: 'premium12' },
-      13: { title: 'Kant et la critique', videoId: 'premium13' },
-      14: { title: 'Hegel et la dialectique', videoId: 'premium14' },
-      15: { title: 'La philosophie contemporaine', videoId: 'premium15' }
+    excellence: {
+      1: { title: 'Les présocratiques et la nature', videoId: 'excellence1' },
+      2: { title: 'Socrate et l\'art du dialogue', videoId: 'excellence2' },
+      3: { title: 'Platon et la justice', videoId: 'excellence3' },
+      4: { title: 'Aristote et la métaphysique', videoId: 'excellence4' },
+      5: { title: 'Le néoplatonisme', videoId: 'excellence5' },
+      6: { title: 'La philosophie hellénistique', videoId: 'excellence6' },
+      7: { title: 'Saint Augustin et la foi', videoId: 'excellence7' },
+      8: { title: 'Saint Thomas d\'Aquin', videoId: 'excellence8' },
+      9: { title: 'La philosophie de la Renaissance', videoId: 'excellence9' },
+      10: { title: 'Le rationalisme cartésien', videoId: 'excellence10' },
+      11: { title: 'L\'empirisme britannique', videoId: 'excellence11' },
+      12: { title: 'Les Lumières', videoId: 'excellence12' },
+      13: { title: 'Kant et la critique', videoId: 'excellence13' },
+      14: { title: 'Hegel et la dialectique', videoId: 'excellence14' },
+      15: { title: 'La philosophie contemporaine', videoId: 'excellence15' }
     }
   };
 
   function getContent(track: keyof VideoTracks, id: number): VideoContent {
     switch (track) {
-      case 'accelere':
-        return videoContent.accelere[id] || { title: 'Cours en préparation', videoId: 'placeholder' };
-      case 'classique':
-        return videoContent.classique[id] || { title: 'Cours en préparation', videoId: 'placeholder' };
-      case 'premium':
-        return videoContent.premium[id] || { title: 'Cours en préparation', videoId: 'placeholder' };
+      case 'apprenti':
+        return videoContent.apprenti[id] || { title: 'Cours en préparation', videoId: 'placeholder' };
+      case 'stratege':
+        return videoContent.stratege[id] || { title: 'Cours en préparation', videoId: 'placeholder' };
+      case 'excellence':
+        return videoContent.excellence[id] || { title: 'Cours en préparation', videoId: 'placeholder' };
       default:
         return { title: 'Cours en préparation', videoId: 'placeholder' };
     }
@@ -78,19 +78,19 @@
   $: prevId = id - 1;
   
   // Check if next/prev content exists based on track
-  $: hasNext = track === 'accelere' ? 
+  $: hasNext = track === 'apprenti' ? 
     nextId <= 5 : 
-    (track === 'classique' ? nextId <= 20 : nextId <= 30);
+    (track === 'stratege' ? nextId <= 20 : nextId <= 30);
   $: hasPrev = prevId >= 1;
   
   // Determine next and previous content types
   $: nextType = hasNext ? (
-    track === 'accelere' ? 'video' :
+    track === 'apprenti' ? 'video' :
     nextId % 2 === 0 ? 'exercise' : 'video'
   ) : null;
   
   $: prevType = hasPrev ? (
-    track === 'accelere' ? 'video' :
+    track === 'apprenti' ? 'video' :
     prevId % 2 === 0 ? 'exercise' : 'video'
   ) : null;
 </script>

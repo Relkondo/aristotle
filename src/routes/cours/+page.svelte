@@ -1,31 +1,31 @@
 <script>
   const tracks = [
     {
-      id: 'accelere',
-      title: 'Accéléré',
+      id: 'apprenti',
+      title: 'Apprenti',
       courses: 5,
       description: 'Un parcours intensif de 5 semaines pour maîtriser les fondamentaux de la philosophie.',
       color: '#4a6b8a',
       hoverColor: '#3a5a7a',
-      path: '/cours/accelere'
+      path: '/cours/apprenti'
     },
     {
-      id: 'classique',
-      title: 'Classique',
+      id: 'stratege',
+      title: 'Stratège',
       courses: 10,
       description: 'Un parcours complet de 10 semaines pour une compréhension approfondie de la philosophie.',
       color: '#5d7a6d',
       hoverColor: '#4d6a5d',
-      path: '/cours/classique'
+      path: '/cours/stratege'
     },
     {
-      id: 'premium',
-      title: 'Premium',
+      id: 'excellence',
+      title: 'Excellence',
       courses: 15,
       description: 'Un parcours approfondi de 15 semaines avec des contenus exclusifs et un suivi personnalisé.',
       color: '#7a6b8a',
       hoverColor: '#6a5a7a',
-      path: '/cours/premium'
+      path: '/cours/excellence'
     }
   ];
 </script>

@@ -30,7 +30,8 @@
 	<nav class="sidebar">
 		<ul>
 			<li><a href="/">Accueil</a></li>
-			<li><a href="/cours">Cours</a></li>
+			<li><a href="/cours">Parcours</a></li>
+			<li><a href="/qui-sommes-nous">Qui sommes-nous ?</a></li>
 			<li><a href="/profile">Profile</a></li>
 			<li><a href="/preferences">Préférences</a></li>
 		</ul>
