@@ -23,6 +23,8 @@
 			<p>Vidéo à venir</p>
 		</div>
 	</div>
+
+	<a href="/recommendation" class="recommend-link">Quel parcours choisir ?</a>
 </div>
 
 <style>
@@ -63,5 +65,22 @@
 		justify-content: center;
 		border-radius: 8px;
 		color: #666;
+	}
+
+	.recommend-link {
+		display: inline-block;
+		margin: 2rem auto 0 auto;
+		padding: 1rem 2rem;
+		background: #e9ecef;
+		color: #2c3e50;
+		border-radius: 8px;
+		font-size: 1.1rem;
+		text-decoration: none;
+		transition: background 0.2s, color 0.2s;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+	}
+	.recommend-link:hover {
+		background: #d1d8e0;
+		color: #1a252f;
 	}
 </style>
