@@ -1,7 +1,6 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
   import { webVitals } from '$lib/vitals';
-  import { browser } from '$app/env';
+  import { browser } from '$app/environment';
   import { page } from '$app/stores';
   import '../app.css';
   import { onMount } from 'svelte';
@@ -22,15 +21,15 @@
   }
 </script>
 
-<Header />
 
-<div class="layout">
+<div class="layout" class:menu-open={isMenuOpen}>
 	<button class="menu-button" on:click={toggleMenu}>
 		<span class="menu-icon">☰</span>
 	</button>
 	
-	<nav class="sidebar" class:open={isMenuOpen}>
+	<nav class="sidebar">
 		<ul>
+			<li><a href="/">Accueil</a></li>
 			<li><a href="/cours">Cours</a></li>
 			<li><a href="/profile">Profile</a></li>
 			<li><a href="/preferences">Préférences</a></li>
@@ -42,14 +41,16 @@
 	</main>
 </div>
 
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
-
 <style>
 	.layout {
 		display: flex;
 		min-height: 100vh;
+		transition: padding-left 0.3s ease;
+		padding-left: 0;
+	}
+
+	.layout.menu-open {
+		padding-left: 250px;
 	}
 
 	.menu-button {
@@ -62,6 +63,11 @@
 		font-size: 1.5rem;
 		cursor: pointer;
 		padding: 0.5rem;
+		transition: left 0.3s ease;
+	}
+
+	.menu-open .menu-button {
+		left: 251px;
 	}
 
 	.sidebar {
@@ -70,13 +76,13 @@
 		top: 0;
 		width: 250px;
 		height: 100vh;
-		background-color: white;
+		background-color: #f8f9fa;
 		box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 		transition: left 0.3s ease;
 		z-index: 99;
 	}
 
-	.sidebar.open {
+	.menu-open .sidebar {
 		left: 0;
 	}
 
@@ -92,36 +98,22 @@
 
 	.sidebar a {
 		text-decoration: none;
-		color: #333;
+		color: #2c3e50;
 		font-size: 1.1rem;
 		display: block;
 		padding: 0.5rem;
+		border-radius: 4px;
+		transition: background-color 0.2s ease;
 	}
 
 	.sidebar a:hover {
-		color: #666;
+		background-color: #e9ecef;
+		color: #1a252f;
 	}
 
 	main {
 		flex: 1;
 		padding: 2rem;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
+		background-color: #ffffff;
 	}
 </style>
