@@ -43,6 +43,17 @@
 </div>
 
 <style>
+	:root {
+		--background-main: #e6f0fa;
+		--background-card: #f4f8fc;
+		--text-main: #8a3c00;
+		--sidebar-bg: #dde8f3;
+		--sidebar-link-hover: #fbeee0;
+	}
+	body, .layout {
+		background: var(--background-main);
+		color: var(--text-main);
+	}
 	.layout {
 		display: flex;
 		min-height: 100vh;
@@ -77,7 +88,7 @@
 		top: 0;
 		width: 250px;
 		height: 100vh;
-		background-color: #f8f9fa;
+		background-color: var(--sidebar-bg);
 		box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 		transition: left 0.3s ease;
 		z-index: 99;
@@ -99,7 +110,7 @@
 
 	.sidebar a {
 		text-decoration: none;
-		color: #2c3e50;
+		color: var(--text-main);
 		font-size: 1.1rem;
 		display: block;
 		padding: 0.5rem;
@@ -108,13 +119,14 @@
 	}
 
 	.sidebar a:hover {
-		background-color: #e9ecef;
-		color: #1a252f;
+		background-color: var(--sidebar-link-hover);
+		color: #a04a00;
 	}
 
 	main {
 		flex: 1;
 		padding: 2rem;
-		background-color: #ffffff;
+		background: none;
+		color: var(--text-main);
 	}
 </style>

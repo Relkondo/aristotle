@@ -11,6 +11,10 @@
 </div>
 
 <style>
+    .container, h1, p, label, input, .preferences-section {
+        color: var(--text-main);
+    }
+
     .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -18,7 +22,6 @@
     }
 
     h1 {
-        color: #2c3e50;
         margin-bottom: 1rem;
     }
 </style> 

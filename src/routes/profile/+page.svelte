@@ -21,4 +21,8 @@
         color: #2c3e50;
         margin-bottom: 1rem;
     }
+
+    .container, h1, p, label, input, .profile-section {
+        color: var(--text-main);
+    }
 </style> 

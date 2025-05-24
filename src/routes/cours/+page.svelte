@@ -59,15 +59,17 @@
     padding: 2rem;
   }
 
+  h1, .subtitle {
+    color: var(--text-main);
+  }
+
   h1 {
-    color: #2c3e50;
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-align: center;
   }
 
   .subtitle {
-    color: #666;
     text-align: center;
     margin-bottom: 3rem;
     font-size: 1.2rem;
@@ -81,7 +83,8 @@
   }
 
   .track-card {
-    background: white;
+    background: var(--background-card);
+    color: var(--text-main);
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -93,6 +96,8 @@
   }
 
   .track-card:hover {
+    background: #e6cfa7;
+    color: #a04a00;
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     border-color: var(--track-hover-color);
@@ -106,7 +111,6 @@
   }
 
   .track-header h2 {
-    color: var(--track-color);
     font-size: 1.8rem;
     margin: 0;
   }
@@ -121,7 +125,6 @@
   }
 
   .track-description {
-    color: #666;
     line-height: 1.6;
     flex-grow: 1;
   }

@@ -51,10 +51,12 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+    background: none;
+    color: var(--text-main);
   }
 
   h1 {
-    color: #2c3e50;
+    color: var(--text-main);
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -70,13 +72,13 @@
   }
 
   h2 {
-    color: #2c3e50;
+    color: var(--text-main);
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
 
   .intro p {
-    color: #666;
+    color: #a04a00;
     line-height: 1.8;
     font-size: 1.1rem;
   }
@@ -87,7 +89,8 @@
   }
 
   .professor-card {
-    background: #f8f9fa;
+    background: var(--background-card);
+    color: var(--text-main);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -119,19 +122,19 @@
   }
 
   .professor-info h3 {
-    color: #2c3e50;
+    color: var(--text-main);
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
   }
 
   .professor-info .title {
-    color: #6c757d;
+    color: var(--text-main);
     font-size: 1.1rem;
     margin-bottom: 1rem;
   }
 
   .bio-list {
-    color: #666;
+    color: #a04a00;
     line-height: 1.6;
     font-size: 1rem;
     padding-left: 1.2em;

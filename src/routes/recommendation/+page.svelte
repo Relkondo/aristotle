@@ -80,15 +80,16 @@
     max-width: 600px;
     margin: 3rem auto;
     padding: 2rem;
-    background: #f8f9fa;
+    background: var(--background-card);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     text-align: center;
     position: relative;
     min-height: 400px;
+    color: var(--text-main);
   }
   h1 {
-    color: #2c3e50;
+    color: var(--text-main);
     font-size: 2rem;
     margin-bottom: 2rem;
   }
@@ -96,7 +97,7 @@
     margin-bottom: 2rem;
   }
   h2 {
-    color: #2c3e50;
+    color: var(--text-main);
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
   }
@@ -109,7 +110,7 @@
   }
   label {
     font-size: 1.1rem;
-    color: #34495e;
+    color: var(--text-main);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -132,9 +133,9 @@
     position: absolute;
     right: 2rem;
     bottom: 2rem;
-    background: #6c757d;
-    color: white;
-    border: none;
+    background: var(--sidebar-link-hover);
+    color: var(--text-main);
+    border: 1px solid #e6cfa7;
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     font-size: 1rem;
@@ -143,6 +144,7 @@
     z-index: 10;
   }
   .nav-button.next:hover {
-    background: #495057;
+    background: #fbe3c0;
+    color: #a04a00;
   }
 </style> 

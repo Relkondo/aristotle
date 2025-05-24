@@ -33,19 +33,24 @@
 		margin: 0 auto;
 		padding: 2rem;
 		text-align: center;
+		background: none;
+		color: var(--text-main);
 	}
 
 	h1 {
 		font-size: 3rem;
-		color: #2c3e50;
+		color: var(--text-main);
 		margin-bottom: 2rem;
+	}
+
+	.welcome-text, .welcome-text p {
+		color: var(--text-main);
 	}
 
 	.welcome-text {
 		max-width: 800px;
 		margin: 0 auto 3rem auto;
 		line-height: 1.6;
-		color: #34495e;
 	}
 
 	.welcome-text p {
@@ -58,29 +63,30 @@
 	}
 
 	.video-container {
-		background-color: #f5f5f5;
+		background: var(--background-card);
 		aspect-ratio: 16/9;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 8px;
-		color: #666;
+		color: #a04a00;
 	}
 
 	.recommend-link {
 		display: inline-block;
 		margin: 2rem auto 0 auto;
 		padding: 1rem 2rem;
-		background: #e9ecef;
-		color: #2c3e50;
+		background: var(--sidebar-link-hover);
+		color: var(--text-main);
 		border-radius: 8px;
 		font-size: 1.1rem;
 		text-decoration: none;
 		transition: background 0.2s, color 0.2s;
 		box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+		border: 1px solid #e6cfa7;
 	}
 	.recommend-link:hover {
-		background: #d1d8e0;
-		color: #1a252f;
+		background: #fbe3c0;
+		color: #a04a00;
 	}
 </style>
